@@ -6,34 +6,42 @@ All colors MUST be HSL.
 
 :root {
   --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --foreground: 218 84% 4.9%;
 
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card-foreground: 218 84% 4.9%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 218 84% 4.9%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  /* Glooper Digital Brand Colors */
+  --primary: 218 54% 20%;  /* Professional Navy #1a365d */
+  --primary-foreground: 0 0% 98%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 214 40% 96%;
+  --secondary-foreground: 218 54% 20%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 214 40% 96%;
+  --muted-foreground: 215 16% 47%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  /* Orange Accent Color */
+  --accent: 16 100% 60%;  /* Energetic Orange #ff6b35 */
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 218 54% 20%;
 
   --radius: 0.5rem;
+
+  /* Glooper Digital Additional Colors */
+  --glooper-blue: 218 54% 20%;   /* Navy */
+  --glooper-orange: 16 100% 60%;  /* Orange */
+  --glooper-light-blue: 218 40% 90%;  /* Light blue background */
+  --glooper-gray: 215 16% 47%;    /* Muted text */
 
   --sidebar-background: 0 0% 98%;
   --sidebar-foreground: 240 5.3% 26.1%;
@@ -160,4 +168,77 @@ All colors MUST be HSL.
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+}
+
+/* Glooper Digital Custom Styles */
+.glooper-gradient {
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
+}
+
+.glooper-card-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.glooper-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.glooper-stat-counter {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: hsl(var(--primary));
+}
+
+/* Animation for count-up effect */
+@keyframes countUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-countUp {
+  animation: countUp 0.6s ease-out;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom button styles */
+.btn-glooper-primary {
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(16 100% 55%) 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-glooper-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+}
+
+.btn-glooper-secondary {
+  background: transparent;
+  color: hsl(var(--primary));
+  border: 2px solid hsl(var(--primary));
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-glooper-secondary:hover {
+  background: hsl(var(--primary));
+  color: white;
+  transform: translateY(-2px);
 }
